@@ -4,10 +4,12 @@ from atlas.indicators.base import Indicator
 from atlas.indicators.engine import IndicatorEngine
 from atlas.indicators.registry import IndicatorRegistry
 from atlas.indicators.result import IndicatorResult
+from atlas.indicators.rsi import RSIIndicator
 
 __all__ = [
     "Indicator",
     "IndicatorEngine",
     "IndicatorRegistry",
     "IndicatorResult",
+    "RSIIndicator",
 ]
