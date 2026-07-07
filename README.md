@@ -41,5 +41,6 @@ uv run pre-commit run --all-files
 
 - `apps/cli/main.py` contains the Typer CLI entry point.
 - `src/atlas/domain/shared/` contains shared immutable domain models.
+- `src/atlas/shared/` is reserved for future cross-domain helpers.
 - `tests/` contains the pytest suite.
 - `AGENTS.md` captures collaboration and implementation guidance for future agent work.
