@@ -1,5 +1,6 @@
+from collections.abc import Hashable
 from decimal import Decimal, InvalidOperation
-from typing import Hashable
+from typing import Protocol
 
 from atlas.domain.shared import Evidence, Instrument, OHLCV, Signal
 from atlas.indicators import IndicatorEngine, IndicatorRegistry, IndicatorResult, RSIIndicator
@@ -11,8 +12,13 @@ MIDPOINT = Decimal("50")
 OVERBOUGHT_THRESHOLD = Decimal("70")
 
 
+class IndicatorRunner(Protocol):
+    def run(self, name: str, bars: list[OHLCV]) -> IndicatorResult:
+        ...
+
+
 class RSIMomentumAnalyzer:
-    def __init__(self, engine: IndicatorEngine | None = None, period: int = 14) -> None:
+    def __init__(self, engine: IndicatorRunner | None = None, period: int = 14) -> None:
         self._period = period
         self._engine = engine or self._default_engine(period)
 
