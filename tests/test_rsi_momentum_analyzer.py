@@ -36,7 +36,7 @@ def make_bars(count: int) -> list[OHLCV]:
 
 def test_analyzer_returns_oversold_signal() -> None:
     engine = FakeIndicatorEngine([IndicatorResult(name="rsi", value=Decimal("25"))])
-    analyzer = RSIMomentumAnalyzer(engine=engine)  # type: ignore[arg-type]
+    analyzer = RSIMomentumAnalyzer(engine=engine)
     instrument = Instrument(symbol="AAPL")
 
     signal = analyzer.analyze(instrument, make_bars(10))
@@ -54,7 +54,7 @@ def test_analyzer_returns_oversold_signal() -> None:
 
 def test_analyzer_returns_overbought_signal() -> None:
     engine = FakeIndicatorEngine([IndicatorResult(name="rsi", value=Decimal("75"))])
-    analyzer = RSIMomentumAnalyzer(engine=engine)  # type: ignore[arg-type]
+    analyzer = RSIMomentumAnalyzer(engine=engine)
 
     signal = analyzer.analyze(Instrument(symbol="AAPL"), make_bars(10))
 
@@ -64,7 +64,7 @@ def test_analyzer_returns_overbought_signal() -> None:
 
 def test_analyzer_returns_neutral_signal() -> None:
     engine = FakeIndicatorEngine([IndicatorResult(name="rsi", value=Decimal("52"))])
-    analyzer = RSIMomentumAnalyzer(engine=engine)  # type: ignore[arg-type]
+    analyzer = RSIMomentumAnalyzer(engine=engine)
 
     signal = analyzer.analyze(Instrument(symbol="AAPL"), make_bars(10))
 
@@ -82,7 +82,7 @@ def test_analyzer_handles_insufficient_data() -> None:
             )
         ]
     )
-    analyzer = RSIMomentumAnalyzer(engine=engine)  # type: ignore[arg-type]
+    analyzer = RSIMomentumAnalyzer(engine=engine)
 
     signal = analyzer.analyze(Instrument(symbol="AAPL"), make_bars(3))
 
@@ -95,7 +95,7 @@ def test_analyzer_handles_insufficient_data() -> None:
 def test_analyzer_uses_indicator_engine() -> None:
     bars = make_bars(10)
     engine = FakeIndicatorEngine([IndicatorResult(name="rsi", value=Decimal("52"))])
-    analyzer = RSIMomentumAnalyzer(engine=engine)  # type: ignore[arg-type]
+    analyzer = RSIMomentumAnalyzer(engine=engine)
 
     analyzer.analyze(Instrument(symbol="AAPL"), bars)
 
