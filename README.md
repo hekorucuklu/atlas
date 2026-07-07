@@ -4,7 +4,7 @@ Atlas is a long-term Python project in its initial bootstrap phase.
 
 ## Status
 
-This repository currently contains only the minimal scaffolding needed to start an MVP safely. Business logic has not been implemented yet.
+This repository currently contains minimal scaffolding and shared domain models for the MVP foundation. Business logic has not been implemented yet.
 
 ## Requirements
 
@@ -40,5 +40,6 @@ uv run pre-commit run --all-files
 ## Project Shape
 
 - `apps/cli/main.py` contains the Typer CLI entry point.
+- `src/atlas/domain/shared/` contains shared immutable domain models.
 - `tests/` contains the pytest suite.
 - `AGENTS.md` captures collaboration and implementation guidance for future agent work.
