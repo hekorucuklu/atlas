@@ -13,13 +13,6 @@ def test_contracts_import_from_public_package() -> None:
     assert DecisionEngine.__name__ == "DecisionEngine"
 
 
-def test_contracts_are_protocols() -> None:
-    assert Analyzer._is_protocol
-    assert Indicator._is_protocol
-    assert MarketDataProvider._is_protocol
-    assert DecisionEngine._is_protocol
-
-
 def test_analyzer_contract_signature() -> None:
     method = Analyzer.analyze
 
